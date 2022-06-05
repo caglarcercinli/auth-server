@@ -23,15 +23,16 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(){
-        var u1= User.withUsername("bill").password("12345").authorities("read").build();
+    public UserDetailsService userDetailsService() {
+        var u1 = User.withUsername("bill").password("12345").authorities("read").build();
 
         var uds = new InMemoryUserDetailsManager();
         uds.createUser(u1);
         return uds;
     }
+
     @Bean
-    public PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
+    public PasswordEncoder passwordEncoder() {
+        return NoOpPasswordEncoder.getInstance(); // only for demonstrations
     }
 }
